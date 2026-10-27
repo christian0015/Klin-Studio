@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Scene from "@/components/Scene";
+import HeroMenuHit from "@/components/HeroMenuHit";
 import Art from "@/components/Art";
 import { R } from "@/components/R";
 import { getT, getProjects, cld } from "@/lib/content";
@@ -14,6 +15,7 @@ export default async function Home({ params }) {
   return (
     <main>
       <Scene copy={{ tagline: t.tagline, cta: t.cta, href: `/${lang}/contact`, corners: h.corners, story: h.story, hint: h.hint }} images={list.map(i => i.img)} />
+      <HeroMenuHit />
       <section className="sr"><h2>{t.seo.home.title}</h2><p>{t.intro}</p><p>{t.tagline}</p></section>
       {/* Parcours épinglé : zoom de l'intro → portail → marche horizontale devant le mur de cuir */}
       <section className="story" data-story style={{ height: `calc(100vh * ${(3.7 + 0.9 * list.length).toFixed(2)})` }}>

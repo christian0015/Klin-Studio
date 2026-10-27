@@ -175,3 +175,16 @@ a.btn,.btn{text-decoration:none}
 .mq.is-run{-webkit-mask-image:linear-gradient(90deg,transparent,#000 var(--f),#000 calc(100% - var(--f)),transparent);mask-image:linear-gradient(90deg,transparent,#000 var(--f),#000 calc(100% - var(--f)),transparent)}
 .mq-t.run>span{padding-left:var(--f)}
 .mq-line .mq{width:min(200px,calc(100vw - 6.5rem))}
+
+/* lecteur : boutons à icônes SVG */
+.audio svg{display:block}.audio-row button,.audio-re{display:grid;place-items:center;min-width:3.4rem;height:2.6rem;padding:0 .9rem}.audio-re{margin:0}.mq-note{display:grid;place-items:center}
+/* fenêtre « ambiance sonore » */
+.snd-ov{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:1.2rem;background:radial-gradient(120% 120% at 50% 40%,rgba(3,6,6,.6),rgba(3,6,6,.9));animation:sndin .6s ease both}
+.snd-card{position:relative;width:min(440px,100%);text-align:center;background:rgba(10,14,14,.9);border:1px solid rgba(244,239,230,.14);border-radius:26px;padding:clamp(1.8rem,5vw,2.6rem) clamp(1.4rem,4vw,2.4rem);box-shadow:0 30px 90px rgba(0,0,0,.6);animation:sndcard .7s cubic-bezier(.2,.7,.2,1) both}
+.snd-card::before{content:"";position:absolute;top:-1px;left:50%;width:84px;height:1px;transform:translateX(-50%);background:var(--warm)}
+.snd-ico{width:60px;height:60px;margin:0 auto 1.4rem;display:grid;place-items:center;border:1px solid rgba(244,239,230,.18);border-radius:18px;color:var(--fg)}
+.snd-card h2{margin:0 0 .8rem;font-size:1.2rem;letter-spacing:.2em}.snd-card p{margin:0 auto 1.8rem;max-width:30ch;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;line-height:2;opacity:.62}
+.snd-b{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap}.snd-b button{font:inherit;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;border-radius:999px;padding:.9rem 1.8rem;cursor:pointer;transition:.25s}
+.snd-y{background:var(--warm);color:#14100b;border:1px solid var(--warm)}.snd-y:hover{filter:brightness(1.08)}.snd-n{background:none;color:inherit;border:1px solid rgba(244,239,230,.25);opacity:.75}.snd-n:hover{opacity:1;border-color:var(--warm)}
+@keyframes sndin{from{opacity:0}}@keyframes sndcard{from{opacity:0;transform:translateY(18px) scale(.97)}}
+@media(prefers-reduced-motion:reduce){.snd-ov,.snd-card{animation:none}}

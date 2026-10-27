@@ -9,6 +9,7 @@ export default function MenuRod({ items, lang, other, menuLabel }) {
     on(); addEventListener("scroll", on, { passive: true }); addEventListener("keydown", k);
     return () => { removeEventListener("scroll", on); removeEventListener("keydown", k); };
   }, []);
+  useEffect(() => { const o = () => setOpen(true); addEventListener("klin:menu", o); return () => removeEventListener("klin:menu", o); }, []); // ouverture depuis la zone invisible du hero
   return (
     <>
       <button className="rod" aria-expanded={open} aria-label="Menu" onClick={() => setOpen(!open)}><i style={{ "--p": p }} /><span>{open ? "×" : menuLabel || "Menu"}</span></button>
