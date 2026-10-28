@@ -10,7 +10,7 @@ function abuse(ip, api) {
   if (w.length > (api ? 40 : 120)) { bans.set(ip, now + 6e5); return true; }
   return false;
 }
-export function middleware(req) {
+export function proxy(req) {
   const { pathname } = req.nextUrl, ip = (req.headers.get("x-forwarded-for") || "local").split(",")[0].trim();
   if (abuse(ip, pathname.startsWith("/api"))) return new NextResponse("Too Many Requests", { status: 429, headers: { "Retry-After": "600" } });
   if (BAD.test(req.headers.get("user-agent") || "")) return new NextResponse("Forbidden", { status: 403 });

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Arrow from "@/components/Arrow";
 import { R } from "@/components/R";
 import { Mist, Hero } from "@/components/ui";
 import { getT, getProjects, cld } from "@/lib/content";
@@ -12,7 +13,7 @@ export default async function Blog({ params }) {
       {posts.length === 0 ? <R className="k">{t.blog.empty}</R> : <div className="cardg">{posts.map((p, i) => { const img = cld(p.media.find(m => m.type !== "video")?.url, "f_auto,q_auto,w_720,h_450,c_fill"); return (
         <Link key={p.slug} href={`/${lang}/blog/${p.slug}`} className="card pc rv" style={{ "--d": (i % 3) * 0.1 + "s" }}>
           <div className="pc-i">{img ? <img src={img} alt={p.title[lang]} loading="lazy" decoding="async" /> : <span />}</div>
-          <small className="k">{t.project[p.origin === "client" ? "client" : "personal"]} · {dt(p.createdAt)}</small><h3>{p.title[lang]}</h3><p>{p.summary?.[lang]}</p><span className="k">{t.project.read} →</span></Link>); })}</div>}
+          <small className="k">{t.project[p.origin === "client" ? "client" : "personal"]} · {dt(p.createdAt)}</small><h3>{p.title[lang]}</h3><p>{p.summary?.[lang]}</p><span className="k">{t.project.read} <Arrow dir="right" /></span></Link>); })}</div>}
       {ld.map((l, i) => <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(l) }} />)}
     </main>
   );

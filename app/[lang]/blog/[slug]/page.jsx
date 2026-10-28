@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Arrow from "@/components/Arrow";
 import Link from "next/link";
 import { R } from "@/components/R";
 import { Mist, Cta } from "@/components/ui";
@@ -28,9 +29,9 @@ export default async function Post({ params }) {
         {p.media.slice(1).map((m, i) => <Media key={m.publicId} m={m} i={i + 1} />)}
         {body && (isHtml(body) ? <div className="prose" dangerouslySetInnerHTML={{ __html: sanitizeHtml(body) }} /> : <div className="prose">{body.split(/\n{2,}/).map((x, i) => <p key={i}>{x}</p>)}</div>)}
         <div className="share k">{t.project.share} : <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}`} target="_blank" rel="noopener">LinkedIn</a><a href={`https://twitter.com/intent/tweet?url=${enc(url)}&text=${enc(p.title[lang])}`} target="_blank" rel="noopener">X</a><a href={`https://wa.me/?text=${enc(p.title[lang] + " " + url)}`} target="_blank" rel="noopener">WhatsApp</a>
-          {p.url && <a className="btn" href={p.url} rel="noopener" target="_blank">{t.project.visit} ↗</a>}</div>
+          {p.url && <a className="btn" href={p.url} rel="noopener" target="_blank">{t.project.visit} <Arrow dir="ne" /></a>}</div>
       </article>
-      {related.length > 0 && <section className="sect"><R as="h2" className="k ty">{t.project.related}</R><div className="cardg">{related.map(r => <Link key={r.slug} className="card pc" href={`/${lang}/blog/${r.slug}`}><h3>{r.title[lang]}</h3><p>{r.summary?.[lang]}</p><span className="k">{t.project.read} →</span></Link>)}</div></section>}
+      {related.length > 0 && <section className="sect"><R as="h2" className="k ty">{t.project.related}</R><div className="cardg">{related.map(r => <Link key={r.slug} className="card pc" href={`/${lang}/blog/${r.slug}`}><h3>{r.title[lang]}</h3><p>{r.summary?.[lang]}</p><span className="k">{t.project.read} <Arrow dir="right" /></span></Link>)}</div></section>}
       <Cta c={{ h: t.project.ctaH, p: t.project.ctaP, b: t.cta }} lang={lang} />
       {[postLd(lang, p, og(p)), crumbLd(lang, [[t.ui.home, ""], ["Blog", "/blog"], [p.title[lang], "/blog/" + p.slug]])].map((l, i) => <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(l) }} />)}
     </main>

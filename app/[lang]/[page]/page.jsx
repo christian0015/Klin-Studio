@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Arrow from "@/components/Arrow";
 import Art from "@/components/Art";
 import { R } from "@/components/R";
 import BookingForm from "@/components/BookingForm";
@@ -27,7 +28,7 @@ export default async function Page({ params }) {
       {page === "contact" && <div className="sect two rev">
         <div><R>{c.text[0]}</R><R as="h2" className="k ty">{c.stepsTitle}</R><ol className="tl">{c.steps.map((s, i) => <li className="rv" key={i}><b>{s.t}</b>{s.d}</li>)}</ol>
           <div className="card info rv" style={{ marginTop: "1.4rem" }}><h3>{c.infoTitle}</h3>
-            {c.email && <a href={`mailto:${c.email}`}>{c.email}</a>}{c.phone && <a href={`tel:${c.phone.replace(/\s/g, "")}`}>{c.phone}</a>}{wa && <a href={`https://wa.me/${wa}`} target="_blank" rel="noopener">WhatsApp ↗</a>}
+            {c.email && <a href={`mailto:${c.email}`}>{c.email}</a>}{c.phone && <a href={`tel:${c.phone.replace(/\s/g, "")}`}>{c.phone}</a>}{wa && <a href={`https://wa.me/${wa}`} target="_blank" rel="noopener">WhatsApp <Arrow dir="ne" /></a>}
             <span>{c.hours}</span><span className="k">{c.city}</span></div></div>
         <BookingForm lang={lang} t={t.form} /></div>}
       {page === "legal" && <div className="prose"><R>{c.text[0]}</R>{c.sections.map((s, i) => <section key={i} className="rv"><h2>{s.t}</h2><p>{s.d}</p></section>)}</div>}

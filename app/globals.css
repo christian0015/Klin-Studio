@@ -188,3 +188,6 @@ a.btn,.btn{text-decoration:none}
 .snd-y{background:var(--warm);color:#14100b;border:1px solid var(--warm)}.snd-y:hover{filter:brightness(1.08)}.snd-n{background:none;color:inherit;border:1px solid rgba(244,239,230,.25);opacity:.75}.snd-n:hover{opacity:1;border-color:var(--warm)}
 @keyframes sndin{from{opacity:0}}@keyframes sndcard{from{opacity:0;transform:translateY(18px) scale(.97)}}
 @media(prefers-reduced-motion:reduce){.snd-ov,.snd-card{animation:none}}
+
+/* flèches SVG */
+.arw{display:inline-block;vertical-align:-.14em;margin-left:.3em}.arw-l{margin:0 .3em 0 0}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Arrow from "@/components/Arrow";
 import Scene from "@/components/Scene";
 import HeroMenuHit from "@/components/HeroMenuHit";
 import Art from "@/components/Art";
@@ -25,10 +26,10 @@ export default async function Home({ params }) {
             {list.map((it, i) => (
               <div className="fw" key={i}>
                 {it.href ? <Link className="frame" data-frame={i} href={it.href} aria-label={it.title} /> : <div className="frame" data-frame={i} />}
-                <div className="cap"><R as="h3" words>{it.title}</R>{it.summary && <R d={0.2}>{it.summary}</R>}{it.href && <R d={0.4}><Link href={it.href}>{t.more} →</Link></R>}</div>
+                <div className="cap"><R as="h3" words>{it.title}</R>{it.summary && <R d={0.2}>{it.summary}</R>}{it.href && <R d={0.4}><Link href={it.href}>{t.more} <Arrow dir="right" /></Link></R>}</div>
               </div>
             ))}
-            <div className="fw lead"><Link className="k" href={`/${lang}/blog`}>{t.nav.blog} →</Link></div>
+            <div className="fw lead"><Link className="k" href={`/${lang}/blog`}>{t.nav.blog} <Arrow dir="right" /></Link></div>
           </div>
         </div>
       </section>
